@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .marquee-container {
+    position: relative;
+    width: 400px; /* Set the desired width */
+    overflow: hidden;
+  }
+
+  .marquee {
+    white-space: nowrap;
+    position: absolute;
+    animation: marquee 10s linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+</style>
+</head>
+<body>
+  <div class="marquee-container">
+    <div class="marquee" id="marquee1">
+      String 1: Lorem ipsum dolor sit amet
+    </div>
+    <div class="marquee" id="marquee2">
+      String 2: Consectetur adipiscing elit
+    </div>
+    <div class="marquee" id="marquee3">
+      String 3: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+    </div>
+  </div>
+
+  <script>
+    const marquees = document.querySelectorAll('.marquee');
+    let currentIndex = 0;
+
+    function displayNextMarquee() {
+      marquees[currentIndex].style.animation = 'none';
+      marquees[currentIndex].style.opacity = 0;
+
+      currentIndex = (currentIndex + 1) % marquees.length;
+
+      marquees[currentIndex].style.animation = 'marquee 10s linear infinite';
+      marquees[currentIndex].style.opacity = 1;
+    }
+
+    displayNextMarquee(); // Display the first marquee immediately
+
+    setInterval(displayNextMarquee, 10000); // Switch marquee every 10 seconds
+  </script>
+</body>
+</html>
