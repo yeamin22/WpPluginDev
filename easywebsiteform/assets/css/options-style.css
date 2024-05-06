@@ -1,0 +1,184 @@
+:root{
+    --main-color: #25ace3;
+}
+
+.option_body .ewf-main-column {
+    border: 2px solid var(--main-color);
+    width: auto;
+    display: inline-block;
+    padding: 30px;
+    position: relative
+}
+
+.ewf-api-info li {
+    list-style: none;
+    text-align: left
+}
+
+span.copiable_text {
+    cursor: copy
+}
+
+.footer_btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#ewf_option {
+    margin-right: 20px
+}
+
+#ewf_option .logo {
+    line-height: 0;
+    text-align: center
+}
+
+#ewf_option .logo img {
+    width: 300px
+}
+
+#ewf_option .ewf_header {
+    padding: 30px 0 20px
+}
+
+#ewf_option .option_body {
+    padding: 30px 20px 20px;
+    background: #ffffff;
+    height: calc(100vh - 250px)
+}
+
+#ewf_option .input-group input[type="text"] {
+    width: 400px;
+    border-radius: 3px;
+    padding: 18px 13px 10px;
+    font-size: 14px
+}
+
+#ewf_option .input-group label {
+    position: absolute;
+    background: var(--main-color);
+    color: #fff;
+    padding: 2px 10px;
+    margin-left: 16px;
+    margin-top: -11px
+}
+
+#ewf_option .btn-submit button,
+#ewf_option .btn-reset button,
+.activated_status button {
+    width: 100px;
+    height: 45px;
+    background: var(--main-color);
+    border: none;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 14px;
+    cursor: pointer;
+    transition: .3s
+}
+
+#ewf_option .btn-submit button:hover,
+#ewf_option .btn-submit button:focus,
+#ewf_option .btn-reset button:hover {
+    background: #1d2327 !important
+}
+
+#ewf_option input[type="text"]:focus {
+    border-color: #009688;
+    box-shadow: none;
+    outline: none
+}
+
+#ewf_option .ewf-api-info {
+    margin-top: 20px
+}
+
+#ewf_option .ewf-api-info p {
+    width: auto;
+    display: flex;
+    border-left: 4px solid #009688;
+    padding: 0 10px;
+    font-size: 14px;
+    gap: 10px;
+    justify-content: space-between
+}
+
+#ewf_option .ewf-api-info p span {
+    background: antiquewhite;
+    padding: 6px 14px;
+    font-weight: 500
+}
+
+.ewf_alert {
+    padding-bottom: 35px;
+    color: var(--main-color);
+    font-size: 18px;
+    font-weight: 600
+}
+
+.update_form_data {
+    text-align: right;
+    margin-bottom: 10px
+}
+
+.update_form_data a {
+    padding: 8px 15px;
+    background: var(--main-color);
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500
+}
+
+.copied_msg {
+    display: none
+}
+
+.ewf_alert {
+    text-align: center
+}
+
+.activated_status button {
+    background: #21b321;
+    color: white;
+    cursor: text;
+    width: 120px
+}
+
+.activated_status button.deactivated {
+    background: red
+}
+
+th#ewf_shortcode {
+    width: 30%
+}
+
+input.copiable_input {
+    width: 80%
+}
+
+.ewf_form_table .tablenav.top {
+    display: none;
+}
+/* 
+    Forms Table
+*/
+.tooltip{
+    display:none;
+    position: absolute;
+    top: -30px;
+    right: -35px;
+    background: lightgray;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: black;
+}
+.copiable_wrap{
+    position: relative;
+}
