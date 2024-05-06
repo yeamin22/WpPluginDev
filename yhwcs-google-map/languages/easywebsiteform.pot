@@ -1,0 +1,130 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Website Form\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-11 04:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.6; wp-6.4.3\n"
+"X-Domain: easywebsiteform"
+
+#: template/ewform_display_setup_html.php:29
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: template/ewform_display_setup_html.php:58
+msgid "after login."
+msgstr ""
+
+#: admin/EWF_OptionPanel.php:63 template/ewforms_display_table_html.php:24
+msgid "All Forms"
+msgstr ""
+
+#: template/ewform_display_setup_html.php:21
+msgid "API Key"
+msgstr ""
+
+#: admin/EWF_OptionPanel.php:33 admin/EWF_OptionPanel.php:34
+msgid "API Setup"
+msgstr ""
+
+#: includes/Forms_Tables.php:43
+msgid "Author"
+msgstr ""
+
+#: template/ewform_display_setup_html.php:55
+msgid "Click Here"
+msgstr ""
+
+#: includes/Forms_Tables.php:44
+msgid "Date"
+msgstr ""
+
+#. Name of the plugin
+#: admin/EWF_OptionPanel.php:22 admin/EWF_OptionPanel.php:23
+#: includes/ewform_shortcode.php:31 includes/ewform_shortcode.php:40
+#: template/ewform_display_setup_html.php:57
+#: includes/elementor/widgets/ewform_widgets.php:25
+msgid "Easy Website Form"
+msgstr ""
+
+#. Description of the plugin
+msgid "Easy Website Form Companion Plugin"
+msgstr ""
+
+#: includes/ewform_shortcode.php:36
+msgid "Form Not Found/Broken Url Provided"
+msgstr ""
+
+#: includes/elementor/widgets/ewform_widgets.php:68
+msgid "Forms"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://www.easywebsiteform.com/"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.seoidaho.com/"
+msgstr ""
+
+#: includes/ewform_shortcode.php:40
+msgid "Please Connect Your Account With Api key of"
+msgstr ""
+
+#: includes/Forms_Tables.php:45
+msgid "Preview"
+msgstr ""
+
+#: template/ewform_display_setup_html.php:36
+msgid "Reset"
+msgstr ""
+
+#: includes/ewform_functions.php:73
+msgid "Reset Successful"
+msgstr ""
+
+#: template/ewform_display_setup_html.php:42
+msgid "Save"
+msgstr ""
+
+#: includes/elementor/widgets/ewform_widgets.php:76
+msgid "Select Form"
+msgstr ""
+
+#. Author of the plugin
+msgid "SeoIdaho"
+msgstr ""
+
+#: includes/Forms_Tables.php:42
+msgid "Shortcode"
+msgstr ""
+
+#: includes/ewform_functions.php:23
+msgid "Something went wrong:"
+msgstr ""
+
+#: includes/Forms_Tables.php:41
+msgid "Title"
+msgstr ""
+
+#: template/ewform_display_setup_html.php:56
+msgid "to get your API Key from"
+msgstr ""
+
+#: includes/ewform_functions.php:69
+msgid "You are not allowed to delete API key, Please check permission"
+msgstr ""
+
+#: includes/ewform_functions.php:41
+msgid "You are not allowed to save API Key, Please check permission"
+msgstr ""
