@@ -8,7 +8,7 @@ class Options{
     protected $current_menu_id = null;
 
     public function __construct(){
-         add_action( 'admin_head', [$this, "save_megamenu_options" ]);    
+        // add_action( 'admin_head', [$this, "save_megamenu_options" ]);    
     }
 
     public static function save_megamenu_options(){

@@ -84,6 +84,11 @@ input.glossymm-toggle-btn + label:before {
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
+a.glossymm_megamenu_trigger:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
 input.glossymm-toggle-btn + label:after {
   content: "";
   position: absolute;
@@ -116,18 +121,28 @@ p.notice.notice-warning.glossymm-notice {
     font-size: 16px;
     background: #f3f3f3;
 }
+.button-row-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ajax-loader{
+  display: none;
+}
 
 #menu-to-edit li.menu-item{
     position: relative;
 }
-.glossymm_megamenu_trigger{
-    position: absolute;
-    top: 8px;
-    left: 34%;
-    text-decoration: none;
-
+.glossymm_megamenu_trigger {
+  position: absolute;
+  top: 10px;
+  left: 34%;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  color: forestgreen;
 }
-
 /* Admin Menu Popup  */
 .glossymm_adminmenu_popup {
   position: fixed;
@@ -171,6 +186,7 @@ p.notice.notice-warning.glossymm-notice {
 .glossymm-tabpanel{
   display: none;
 }
+
 button.glossymm-close-popup {
   position: absolute;
   right: 10px;
