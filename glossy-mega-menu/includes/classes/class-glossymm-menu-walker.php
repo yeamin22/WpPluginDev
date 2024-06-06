@@ -1,16 +1,13 @@
 <?php
-namespace ElementsKit_Lite;
+namespace GlossyMM;
 
-use \ElementsKit_Lite\Modules\Megamenu\Init;
-use \ElementsKit_Lite\Libs\Framework\Attr;
-
-class ElementsKit_Menu_Walker extends \Walker_Nav_Menu {
+class Glossymm_Menu_Walker extends \Walker_Nav_Menu {
 
 	public $menu_Settings;
 
 	// custom methods
 	public function get_item_meta( $menu_item_id ) {
-		$meta_key = Init::$menuitem_settings_key;
+		$meta_key = //Init::$menuitem_settings_key;
 		$data     = get_post_meta( $menu_item_id, $meta_key, true );
 		$data     = (array) json_decode( $data );
 
@@ -48,7 +45,7 @@ class ElementsKit_Menu_Walker extends \Walker_Nav_Menu {
 		$modules_active = \ElementsKit_Lite\Libs\Framework\Classes\Utils::instance()->get_option( 'module_list', $modules_all );
 		$modules_active = ( ! isset( $modules_active[0] ) ? array_keys( $modules_active ) : $modules_active );
 
-		$settings = Attr::instance()->utils->get_option( Init::$megamenu_settings_key, array() );
+		//$settings = Attr::instance()->utils->get_option( Init::$megamenu_settings_key, array() );
 		$term     = get_term_by( 'slug', $menu_slug, 'nav_menu' );
 
 		if ( in_array( 'megamenu', $modules_active )

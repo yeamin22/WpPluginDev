@@ -12,7 +12,7 @@
         </div>
         <div class="glossymm-edit-content">
            <div class="glossymm-edit-item">
-                <a href="#"> <img src="<?php echo esc_url(GLOSSYMM_ADMIN_ASSETS . "/img/elementor-icon.png"); ?>" alt="" srcset=""> <span>Edit Content</span></a>
+                <a href="#" id="glossymm-builder-open"> <img src="<?php echo esc_url(GLOSSYMM_ADMIN_ASSETS . "/img/elementor-icon.png"); ?>" alt="" srcset=""> <span>Edit Content</span></a>
            </div> 
         </div>
 

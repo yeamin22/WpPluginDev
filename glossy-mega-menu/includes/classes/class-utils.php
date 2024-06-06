@@ -36,11 +36,28 @@ class Utils {
 		$data_old = $this->get_option( 'settings', array() );
 		$data     = array_merge( $data_old, $new_data );
 		$this->save_option( 'settings', $data );
-	}
-	
+	}	
 
 	public static function strify( $str ) {
 		return strtolower( preg_replace( '/[^A-Za-z0-9]/', '__', $str ) );
+	}
+
+	public static function get_page_by_title($page_title, $post_type = "page"){
+		$query = new \WP_Query(
+			array(
+				'post_type' => $post_type,
+				'title' => $page_title,
+			)
+		);
+
+		if (!empty($query->post)) {
+			$page_got_by_title = $query->post;
+		} else {
+			$page_got_by_title = null;
+		}
+
+		return $page_got_by_title;
+
 	}
 
 }

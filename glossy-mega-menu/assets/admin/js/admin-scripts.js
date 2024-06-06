@@ -7,7 +7,8 @@ jQuery(document).ready(function ($) {
         menuitem_edit_popup_template,
         ajaxurl,
         security_nonce,
-        ajax_loader
+        ajax_loader,
+        resturl
     } = obj;
 
     // Prepend Template from backend to nav menu page
@@ -122,16 +123,18 @@ jQuery(document).ready(function ($) {
                 security: security_nonce,
                 item_id: menu_id
             },
-            success: function (res) {              
-                console.log(res);
+            success: function (res) { 
                 $("#glossymm-tab-content").html(res['item_settings_withhtml']);
-
                 $(".glossymm_popup_overlaping").show();
                 $(".glossymm_adminmenu_popup").show();
-
-                $("#glossymm-mmwidth").on("change", function () {
-                    console.log($(this));
+                $("#glossymm-mmwidth").on("change", function () {  
                     toggleCustomWidth($(this));
+                });
+
+                
+                /* Click Event For Edit Content */
+                $("#glossymm-builder-open").on("click",function(e){
+                    glossymm_builder_open(e)
                 });
             },
             complete: function () {
@@ -207,6 +210,16 @@ jQuery(document).ready(function ($) {
                 $('.glossymm_popup_overlaping').html('Error: ' + xhr.statusText);
             }
         });
+    }
+
+    /* Elementor Builder Open Callback */
+    function glossymm_builder_open(e){
+        e.preventDefault();
+        let menuitem_id = $("#glossymm-item-form").data("item");
+        let elm_edit_url = resturl + "megamenu/content_editor/menuitem" + menuitem_id;       
+        console.log(elm_edit_url);
+        $("#glossymm_megamenu_builder_iframe").attr("src", elm_edit_url);
+        $(".glossymm_megamenu_builder_popup").show();
     }
 
 
