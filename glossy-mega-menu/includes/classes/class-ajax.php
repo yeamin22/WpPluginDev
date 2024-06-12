@@ -33,7 +33,7 @@ class Ajax {
         $data = Utils::get_option( "item_settings_$item_id" );
         ob_start();
         echo '<div class="glossymm-tabpanel active" id="glossymm-pupup-content">';
-        glossymm_get_view( "popup-content/content", $data );
+        glossymm_get_view( "popup-content/content", [$data,$item_id] );
         echo '</div>';
         echo '<div class="glossymm-tabpanel" id="glossymm-pupup-icon">';
         glossymm_get_view( "popup-content/icon" );

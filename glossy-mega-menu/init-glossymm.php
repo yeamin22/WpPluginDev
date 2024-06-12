@@ -27,8 +27,6 @@ if ( !class_exists( "GlossyMM" ) ) {
             add_action( "plugin_loaded", [$this, "init"] );
 
             if ( is_admin() ) {
-
-                // add_action("admin_footer",[$this,'megamenu_options_infooter']);
                 add_action( "admin_enqueue_scripts", [$this, "glossymm_admin_assets"] );
             }
 
@@ -99,14 +97,10 @@ if ( !class_exists( "GlossyMM" ) ) {
         public function includeClasses() {
             $this->controllers['assets'] = new GlossyMM\Assets();
             $this->controllers['api'] = new GlossyMM\Api();
-            if ( is_admin() ) {
-                $this->controllers['utils'] = new GlossyMM\Utils();
-                $this->controllers['options'] = new GlossyMM\Options();
-                $this->controllers['cpt'] = new GlossyMM\Cpt();
-               
-                $this->controllers['ajax'] = new GlossyMM\Ajax();
-            }
-
+            $this->controllers['cpt'] = new GlossyMM\Cpt();       
+            $this->controllers['utils'] = new GlossyMM\Utils();
+            $this->controllers['options'] = new GlossyMM\Options();
+            $this->controllers['ajax'] = new GlossyMM\Ajax(); 
         }
 
         /**

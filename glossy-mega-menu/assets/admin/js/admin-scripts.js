@@ -32,6 +32,15 @@ jQuery(document).ready(function ($) {
         }
     });
 
+     /* Toggle disable edit content button */
+    $("#post-body-content").on("change", "#glossymm_megamenu_item_enabled", function () {      
+        if ($(this).is(":checked")) {
+           $("#glossymm-builder-open").toggleClass("disabled");
+        } else {
+            $("#glossymm-builder-open").toggleClass("disabled");
+        }
+    });
+
     $("#menu-to-edit").on("click", ".glossymm_megamenu_trigger", function (e) {
         handleMegaMenuEditClick(e, this);
     });
@@ -42,17 +51,19 @@ jQuery(document).ready(function ($) {
 
     $(".glossymm-close-popup").on("click", function () {
         closePopup();
-    });
-
-   
+    });   
 
     $("#glossymm-save-item").on("click", function (e) {
         saveMenuItemSettings(e);
     });
 
+    $(".glossymm_close_builder_popup").on("click", function (e) {
+        glossymm_close_builder_popup(e);
+    });
+
     // Close popup on outside click
     $(document).on("click", function (event) {
-        if (!$(event.target).closest(".glossymm_adminmenu_popup, .glossymm_megamenu_trigger").length) {
+        if (!$(event.target).closest(".glossymm_adminmenu_popup, .glossymm_megamenu_trigger, .glossymm_megamenu_builder_popup").length) {
             closePopup();
         }
     });
@@ -161,7 +172,7 @@ jQuery(document).ready(function ($) {
         $(".glossymm_popup_tabs li").removeClass("active");
         $("[data-tab='glossymm-pupup-content']").addClass("active");
         $(".glossymm_adminmenu_popup").hide();
-        $(".glossymm_popup_overlaping").hide();
+        $(".glossymm_popup_overlaping").hide();        
     }
 
     // Function to toggle Custom Width
@@ -178,8 +189,6 @@ jQuery(document).ready(function ($) {
     function saveMenuItemSettings(e) {
         e.preventDefault();
         let item_id = $("#glossymm-item-form").data("item");
-
-
         let enabled = $("#glossymm_megamenu_item_enabled").is(":checked") ? 1 : 0;
         let formData = {
             item_is_enabled: enabled,
@@ -187,7 +196,6 @@ jQuery(document).ready(function ($) {
             glossymm_mmwidth: $('select[name="glossymm-mmwidth"]').val(),
             glossymm_mmposition: $('select[name="glossymm-mmposition"]').val()
         };
-
         $.ajax({
             url: ajaxurl,
             type: 'POST',
@@ -201,7 +209,6 @@ jQuery(document).ready(function ($) {
                 formData: formData
             },
             success: function(response) {
-                console.log(response);
             },
             complete: function () {
                 $(".ajax_preloader").hide();
@@ -215,11 +222,22 @@ jQuery(document).ready(function ($) {
     /* Elementor Builder Open Callback */
     function glossymm_builder_open(e){
         e.preventDefault();
-        let menuitem_id = $("#glossymm-item-form").data("item");
+        let menuitem_id = $("#glossymm-builder-open").data("menuitem");
+        console.log(menuitem_id);
         let elm_edit_url = resturl + "megamenu/content_editor/menuitem" + menuitem_id;       
-        console.log(elm_edit_url);
+        console.log(elm_edit_url);      
         $("#glossymm_megamenu_builder_iframe").attr("src", elm_edit_url);
         $(".glossymm_megamenu_builder_popup").show();
+    }
+
+    /* Close builder pupup */
+    function glossymm_close_builder_popup(e){
+        e.preventDefault();
+        $(".glossymm_popup_tabs li").removeClass("active");
+        $("[data-tab='glossymm-pupup-content']").addClass("active");
+        $("#glossymm_megamenu_builder_iframe").attr("src", '');
+        $(".glossymm_megamenu_builder_popup").hide();
+       // location.reload();        
     }
 
 

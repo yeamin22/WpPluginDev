@@ -43,8 +43,10 @@ class Elementor {
      * @return void
      */
     public function glossymm_el_register_widget( $widgets_manager ) {
-       // require_once __DIR__ . '/widgets/g3d-animation.php';
-        //$widgets_manager->register( new \G3d_Animation() );
+       
+            require_once __DIR__ . '/widgets/nav-menu.php';
+            $widgets_manager->register( new \Glossymm_Nav_Menu() );
+        
     }
 }
 

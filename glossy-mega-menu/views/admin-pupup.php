@@ -27,11 +27,12 @@
     </form>
 </div>
 <div class="glossymm_megamenu_builder_popup">
-    <button class="ekit_close" type="button" data-dismiss="modal"><svg width="20" height="20"
+    <a class="glossymm_close_builder_popup" href="#">
+        <svg width="20" height="20"
             viewBox="0 0 20 20" xmlns="https://www.w3.org/2000/svg">
             <line fill="none" stroke="#fff" stroke-width="1.4" x1="1" y1="1" x2="19" y2="19"></line>
             <line fill="none" stroke="#fff" stroke-width="1.4" x1="19" y1="1" x2="1" y2="19"></line>
         </svg>
-    </button>
+    </a>
     <iframe id="glossymm_megamenu_builder_iframe" src="" frameborder="0"></iframe>
 </div>

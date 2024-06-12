@@ -49,7 +49,6 @@ class Utils {
 				'title' => $page_title,
 			)
 		);
-
 		if (!empty($query->post)) {
 			$page_got_by_title = $query->post;
 		} else {
@@ -58,6 +57,28 @@ class Utils {
 
 		return $page_got_by_title;
 
+	}
+
+
+	public static function get_attachment_image_html( $settings, $image_key, $image_size_key = null, $image_attr = array() ) {
+		if ( ! $image_key ) {
+			$image_key = $image_size_key;
+		}
+
+		$image = $settings[ $image_key ];
+
+		$size = $image_size_key;
+
+		$html = '';
+		if ( ! empty( $image['id'] ) && $image['id'] != '-1' ) {
+			$html .= wp_get_attachment_image( $image['id'], $size, false, $image_attr );
+		} else {
+			$html .= sprintf( '<img src="%s" title="%s" alt="%s" />', esc_attr( $image['url'] ), \Elementor\Control_Media::get_image_title( $image ), \Elementor\Control_Media::get_image_alt( $image ) );
+		}
+
+		$html = preg_replace( array( '/max-width:[^"]*;/', '/width:[^"]*;/', '/height:[^"]*;/' ), '', $html );
+
+		return $html;
 	}
 
 }

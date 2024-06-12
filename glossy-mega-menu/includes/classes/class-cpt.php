@@ -6,9 +6,7 @@ defined( 'ABSPATH' ) || exit;
 class Cpt {
 
 	public function __construct() {
-		add_action("init", [$this , "post_type"]);
-		register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
-		register_activation_hook( __FILE__, array( $this, 'flush_rewrites' ) );   
+		add_action("init", [$this , "post_type"]);  
 	}
 
 	public function post_type() {

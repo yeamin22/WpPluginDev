@@ -171,12 +171,11 @@ p.notice.notice-warning.glossymm-notice {
   display: none;
   transition: all 400ms linear;
 }
-
 .glossymm_megamenu_builder_popup {
   position: fixed;
+  background: white;
   width: 85%;
   height: 85%;
-  border: 1px solid red;
   top: 50%;
   bottom: 0;
   left: 50%;
@@ -184,11 +183,24 @@ p.notice.notice-warning.glossymm-notice {
   z-index: 999999;
   display: none;
 }
+
 iframe#glossymm_megamenu_builder_iframe {
   width: 100%;
   height: 100%;
 }
-
+.glossymm_close_builder_popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  cursor: pointer;
+  padding: 2px 5px;
+}
+.glossymm_close_builder_popup:focus{
+  outline: none;
+  box-shadow: none;
+  color: none;
+}
 
 /* End Admin Menu Popup  */
 
@@ -336,6 +348,22 @@ a.glossymm-popup-savebtn {
 }
 .glossymm-edit-item img {
   height: 30px;
+}
+.glossymm-edit-item a.disabled {
+  position: relative;
+  pointer-events: none;
+}
+.glossymm-edit-item a.disabled::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background: rgba(0,0,0, 0.5);
 }
 
 /* End Admin Popup Tab Style */

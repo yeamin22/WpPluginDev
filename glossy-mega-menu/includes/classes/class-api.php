@@ -38,9 +38,7 @@ class Api {
 
 	public function callback( $request ) {
 		$this->request = $request;
-		$action = $request['action'];
-		error_log("API: Request: ". print_r($request, true));
-		
+		$action = $request['action'];	
 		// Call the appropriate method based on the action
 		if (method_exists($this, 'get_' . $action)) {
 			$method = 'get_' . $action;
@@ -91,22 +89,22 @@ class Api {
 			$builder_post_id = $builder_post_id->ID;
 		} 	
 		$url = admin_url( 'post.php?post=' . $builder_post_id . '&action=elementor' );
+
+		
 		wp_safe_redirect( $url );
 		exit;
 	}
 
 
 	public function get_megamenu_content() {
-		$menu_item_id = intval($this->request['id']);
-		print_r($this->request['key']);
-
-		if (!get_post_status($menu_item_id) || post_password_required($menu_item_id)) {
+		$content_key  = $this->request['key'];		
+		$builder_post_title = 'glossymm-content-' . $content_key;
+		$builder_post_id    = Utils::get_page_by_title( $builder_post_title, 'glossymm_content' );
+		if (!get_post_status($builder_post_id) || post_password_required($builder_post_id)) {
 			return new \WP_Error('invalid_id', __('Invalid menu item ID'), array('status' => 404));
 		}
-
 		$elementor = \Elementor\Plugin::instance();
-		$output = $elementor->frontend->get_builder_content_for_display($menu_item_id);
-
+		$output = $elementor->frontend->get_builder_content_for_display($builder_post_id);
 		return $output;
 	}
 }
