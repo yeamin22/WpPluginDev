@@ -125,17 +125,18 @@ ul.glossymm-dropdown.glossymm-submenu-panel.showmenu {
 }
 
 /* Responsive Menu Design */
-.glossymm-menu-container.glossymm-megamenu-offcanvas{
+.glossymm-menu-container.glossymm-megamenu-offcanvas {
   width: 100%;
   position: fixed;
   top: 0;
-  left: -100vw;
+  left: 0;
   height: 100%;
-  -webkit-box-shadow: 0 10px 30px 0 rgba(255,165,0,0);
-  box-shadow: 0 10px 30px 0 rgba(255,165,0,0);
+  background-color: #fff;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(255, 165, 0, 0);
+  box-shadow: 0 10px 30px 0 rgba(255, 165, 0, 0);
   overflow-y: auto;
   overflow-x: hidden;
-  padding-top: 0;
+  padding-top: 50px;
   padding-left: 0;
   padding-right: 0;
   display: -webkit-box;
@@ -148,6 +149,41 @@ ul.glossymm-dropdown.glossymm-submenu-panel.showmenu {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  -webkit-transition: left .6s cubic-bezier(.6,.1,.68,.53);
-  transition: left .6s cubic-bezier(.6,.1,.68,.53);
+  -webkit-transition: left .6s cubic-bezier(.6, .1, .68, .53);
+  transition: left .6s cubic-bezier(.6, .1, .68, .53);
 }
+.glossymm-nav-identity-panel {
+  position: absolute;
+  display: flex;
+  right: 0;
+  top: 10px;
+  justify-content: space-between;
+}
+
+.glossymm-menu-hamburger .glossymm-menu-hamburger-icon {
+  background-color: rgba(0, 0, 0, .5)
+}
+
+.glossymm-menu-hamburger {
+  padding: 8px;
+  background-color: transparent;
+  border-radius: .25rem;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  width: 45px;
+  -webkit-transition: all .4s ease-in;
+  transition: all .4s ease-in
+}
+
+.glossymm-menu-hamburger .glossymm-menu-hamburger-icon {
+  height: 1px;
+  width: 100%;
+  display: block;
+  margin-bottom: 4px
+}
+
+.glossymm-menu-hamburger .glossymm-menu-hamburger-icon:last-child {
+  margin-bottom: 0
+}
+

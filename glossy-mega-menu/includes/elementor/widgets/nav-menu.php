@@ -10,6 +10,8 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
+use GlossyMM\Utils;
+
 
 if ( !defined( 'ABSPATH' ) ) {
     exit;
@@ -94,7 +96,7 @@ class Glossymm_Nav_Menu extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'glsymm_menu_align_items',
             [
                 'label'     => __( 'Align Items', 'glossy-mega-menu' ),
@@ -109,6 +111,22 @@ class Glossymm_Nav_Menu extends Widget_Base {
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .glossymm-navbar-nav' => 'align-items: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'glsymm_menu_flex_direction',
+            [
+                'label'     => __( 'Flex Direction:', 'glossy-mega-menu' ),
+                'type'      => \Elementor\Controls_Manager::SELECT,
+                'default'   => 'row',
+                'options'   => [                   
+                    'row'    => __( 'Row', 'glossy-mega-menu' ),
+                    'column' => __( 'Column', 'glossy-mega-menu' ),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .glossymm-navbar-nav' => 'flex-direction: {{VALUE}};',
                 ],
             ]
         );
@@ -283,12 +301,16 @@ class Glossymm_Nav_Menu extends Widget_Base {
                         'max' => 100,
                     ],
                 ],
-                'devices'         => ['desktop'],
+                'devices'         => ['desktop','tablet','mobile'],
                 'desktop_default' => [
                     'size' => 80,
                     'unit' => 'px',
                 ],
                 'tablet_default'  => [
+                    'size' => 100,
+                    'unit' => '%',
+                ],
+                'mobile_default'  => [
                     'size' => 100,
                     'unit' => '%',
                 ],
@@ -367,6 +389,10 @@ class Glossymm_Nav_Menu extends Widget_Base {
                         'min' => 0,
                         'max' => 100,
                     ],
+                ],
+                'mobile_default' => [
+                    'size' => 250,
+                    'unit' => 'px',
                 ],
                 'tablet_default' => [
                     'size' => 350,
@@ -1601,7 +1627,7 @@ class Glossymm_Nav_Menu extends Widget_Base {
                 $nofollow = ( $glossymm_nav_menu_logo_link['nofollow'] != "on" ? "" : "nofollow" );
             }
 
-            //$metadata = \ElementsKit_Lite\Utils::img_meta(esc_attr($settings['glossymm_nav_menu_logo']['id']));
+            $metadata = Utils::img_meta(esc_attr($glossymm_nav_menu_logo['id']));
             $markup = '<div class="glossymm-nav-identity-panel">';
             // Use an if statement to conditionally display the site logo
             if ( !empty( $glossymm_nav_menu_logo['id'] ) ):
