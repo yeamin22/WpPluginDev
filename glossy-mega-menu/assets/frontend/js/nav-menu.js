@@ -4,19 +4,23 @@
         let breakPoint  = $scope.find(".glossymm-menu-wrapper").data("responsive-breakpoint");
         let container  = $scope.find(".glossymm-menu-container");
         if ($(window).width() < breakPoint) {
+            $('.glossymm-nav-identity-panel').css('display', 'flex');
             $('.glossymm-menu-hamburger').css('display', 'block');
             $(container).addClass("glossymm-megamenu-offcanvas");
         } else {
+            $('.glossymm-nav-identity-panel').css('display', 'none');
             $('.glossymm-menu-hamburger').css('display', 'none');
             $(container).removeClass("glossymm-megamenu-offcanvas");
         }
        $(window).resize(function() {
             if ($(window).width() < breakPoint) {
+                $('.glossymm-nav-identity-panel').css('display', 'flex');
                 $('.glossymm-menu-hamburger').css('display', 'block');
                 $(container).addClass("glossymm-megamenu-offcanvas");
             } else {
                 $('.glossymm-menu-hamburger').css('display', 'none');
                 $(container).removeClass("glossymm-megamenu-offcanvas");
+                $('.glossymm-nav-identity-panel').css('display', 'none');
             }
        });
 
@@ -52,6 +56,27 @@
                 }
             }
         });
+
+        
+        // Toggle Offcanvas Menu
+
+        $scope.find(".glossymm-menu-hamburger").on("click", function (e) {
+            $scope.find(".glossymm-megamenu-offcanvas").toggleClass("show");
+            $(document).on("click",function(e){
+                if(!$(e.target).closest(".glossymm-megamenu-offcanvas,.glossymm-menu-hamburger").length){
+                    closeOffcanvas($scope)
+                }
+                
+            });
+        });
+
+        $scope.find(".glossymm-menu-close").on("click", function (e) {
+            closeOffcanvas($scope)
+        });
+
+        
+
+
         // Stop event propagation for clicks within the dropdown panel
         $scope.find(".glossymm-megamenu-panel, .glossymm-dropdown").on("click", function (e) {
             e.stopPropagation();
@@ -72,3 +97,8 @@
 
 
 })(jQuery);
+
+
+function closeOffcanvas($scope){
+    $scope.find(".glossymm-megamenu-offcanvas").removeClass("show");
+}

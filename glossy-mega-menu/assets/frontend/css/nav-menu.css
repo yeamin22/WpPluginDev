@@ -125,7 +125,7 @@ ul.glossymm-dropdown.glossymm-submenu-panel.showmenu {
 }
 
 /* Responsive Menu Design */
-.glossymm-menu-container.glossymm-megamenu-offcanvas {
+.glossymm-menu-container.glossymm-megamenu-offcanvas {  
   width: 100%;
   position: fixed;
   top: 0;
@@ -139,9 +139,7 @@ ul.glossymm-dropdown.glossymm-submenu-panel.showmenu {
   padding-top: 50px;
   padding-left: 0;
   padding-right: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: reverse;
   -ms-flex-direction: column-reverse;
@@ -152,12 +150,18 @@ ul.glossymm-dropdown.glossymm-submenu-panel.showmenu {
   -webkit-transition: left .6s cubic-bezier(.6, .1, .68, .53);
   transition: left .6s cubic-bezier(.6, .1, .68, .53);
 }
+.glossymm-menu-container.glossymm-megamenu-offcanvas.show{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .glossymm-nav-identity-panel {
   position: absolute;
-  display: flex;
-  right: 0;
-  top: 10px;
+  display: none;
+  left: 0;
+  top: 0;
   justify-content: space-between;
+  width: 100%;
 }
 
 .glossymm-menu-hamburger .glossymm-menu-hamburger-icon {
